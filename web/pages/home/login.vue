@@ -13,7 +13,7 @@ import useApiRoutes from '~/utils/apiRoutes';
 const apiRoutes = useApiRoutes();
 const email = ref('');
 const password = ref('');
-const token = useCookie('token', {maxAge: 60 * 30});
+const token = useCookie('token', {maxAge: 60 * 60});
 const catpcha_ref = ref(null);
 const captcha_input = ref('');
 

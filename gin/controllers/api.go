@@ -22,7 +22,7 @@ func GetProfile(c *gin.Context) { // GetUserByEmail
 	// get user info
 	user, err := models.GetUserInfoByEmail(email)
 	if err != nil {
-		c.JSON(http.StatusBadGateway, gin.H{"error": err.Error()})
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 	c.JSON(http.StatusOK, user)

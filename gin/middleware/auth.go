@@ -19,14 +19,12 @@ func Auth() gin.HandlerFunc {
 		tokenString := strings.TrimPrefix(authHeader, "Bearer:")
 		// parse token
 		claims, err := utils.ParseToken(tokenString)
-		if err != nil {
+		if err != nil || claims.Email == "" {
 			c.JSON(http.StatusUnauthorized, gin.H{"error": "Could not parse token!"})
 			return
 		}
 		// check login user
-		// redis
 		// check expire
-
 		c.Set("UserEmail", claims.Email)
 		c.Next()
 	}

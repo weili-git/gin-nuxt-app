@@ -28,13 +28,19 @@ func Router() *gin.Engine {
 	}
 	captcha := r.Group("/captcha")
 	{
-		captcha.GET("/", controllers.GetCaptcha) // final slash is necessary
+		captcha.GET("/", controllers.GetCaptcha) // end slash is necessary
 		captcha.GET("/:captcha_id", controllers.GetCaptchaImage)
 	}
 	api := r.Group("/api")
 	api.Use(middleware.Auth())
 	{
 		api.GET("/profile", controllers.GetProfile)
+	}
+
+	post := r.Group("/post")
+	{
+		post.GET("/:id", controllers.GetPost)
+		post.POST("/", controllers.CreatePost)
 	}
 	return r
 }
