@@ -3,7 +3,9 @@ export default defineNuxtConfig({
   ssr: true,
   devtools: { enabled: true },
   modules: [
-    '@element-plus/nuxt'
+    '@element-plus/nuxt',
+    '@pinia/nuxt',
+    '@pinia-plugin-persistedstate/nuxt',
   ],
   elementPlus: { /** Options */ },
   runtimeConfig: {
